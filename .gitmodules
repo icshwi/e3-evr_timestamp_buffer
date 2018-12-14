@@ -1,0 +1,4 @@
+[submodule "evr_timestamp_buffer"]
+	path = evr_timestamp_buffer
+	url = https://github.com/icshwi/evr_timestamp_buffer
+	ignore = all
