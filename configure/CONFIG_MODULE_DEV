@@ -1,8 +1,8 @@
 #
 EPICS_MODULE_NAME:=evr_timestamp_buffer
-EPICS_MODULE_TAG:=master
+EPICS_MODULE_TAG:=develop
 #
-E3_MODULE_VERSION:=develop
+E3_MODULE_VERSION:=0.1.0
 
 # DEPENDENT MODULE VERSION
 # DEPENDENT MODULE VERSION
@@ -25,7 +25,7 @@ E3_MODULE_VERSION:=develop
 #
 
 E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
-E3_MODULE_SRC_PATH:=evr_timestamp_buffer
+E3_MODULE_SRC_PATH:=evr_timestamp_buffer-dev
 E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
 
 #E3_MODULE_DEV_GITURL:="https://where your git repo which you would like to clone"
