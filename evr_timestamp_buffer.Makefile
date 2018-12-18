@@ -26,13 +26,14 @@ where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include $(E3_REQUIRE_TOOLS)/driver.makefile
 include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
+SCRIPTS +=$(wildcard ../iocsh/*.iocsh)
 
 ## Exclude linux-ppc64e6500
 EXCLUDE_ARCHS = linux-ppc64e6500
 
 
 
-APP:=evr-timestamp-bufferApp
+APP:=evr_timestamp_bufferApp
 APPDB:=$(APP)/Db
 APPSRC:=$(APP)/src
 
@@ -42,7 +43,7 @@ TEMPLATES += $(wildcard $(APPDB)/*.db)
 
 SOURCES += $(APPSRC)/nano_sec_timestamp.c
 
-DBDS += $(APPSRC)/evr-timestamp-buffer.dbd
+DBDS += $(APPSRC)/evr_timestamp_buffer.dbd
 
 
 EPICS_BASE_HOST_BIN = $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)
@@ -53,10 +54,8 @@ USR_DBFLAGS += -I . -I ..
 USR_DBFLAGS += -I $(APPDB)
 
 SUBS=$(wildcard $(APPDB)/*.substitutions)
-TMPS=$(wildcard $(APPDB)/*.template)
 
-
-db: $(SUBS) $(TMPS)
+db: $(SUBS)
 
 $(SUBS):
 	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
@@ -64,15 +63,8 @@ $(SUBS):
 	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
 	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db -S $@
 
-$(TMPS):
-	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
-	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
-	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db $@  > $(basename $(@)).db.d
-	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db $@
 
-#
-
-.PHONY: db $(SUBS) $(TMPS)
+.PHONY: db $(SUBS)
 
 vlibs:
 
