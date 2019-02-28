@@ -11,4 +11,4 @@
 #- SYS            - Required: System prefix (for which component?)
 #
 
-dbLoadRecords("evrTimestampBuffer.db", "CHIC_SYS=$(CHIC_SYS), CHOP_DRV=$(CHOP_DRV), SYS=$(SYS), DEVICE=$(CHIC_DEV):")
+dbLoadRecords("evrTimestampBuffer.db", "CHIC_SYS=$(CHIC_SYS), CHOP_DRV=$(CHOP_DRV), SYS=$(SYS), DEVICE=$(CHIC_DEV):, BUFFSIZE=$(BUFFSIZE)")
