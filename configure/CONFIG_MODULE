@@ -1,9 +1,9 @@
 #
 EPICS_MODULE_NAME:=evr_timestamp_buffer
 
-EPICS_MODULE_TAG:=2.5.0
+EPICS_MODULE_TAG:=new_waveform_devsup
 #
-E3_MODULE_VERSION:=2.5.0
+E3_MODULE_VERSION:=2.5.1
 
 # DEPENDENT MODULE VERSION
 # For Example, 
