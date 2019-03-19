@@ -41,7 +41,10 @@ TEMPLATES += $(wildcard $(APPDB)/*.db)
 #TEMPLATES += $(wildcard $(APPDB)/*.proto)
 #TEMPLATES += $(wildcard $(APPDB)/*.template)
 
-SOURCES += $(APPSRC)/nano_sec_timestamp.c
+#SOURCES += $(APPSRC)/nano_sec_timestamp.c
+#SOURCES += $(APPSRC)/devAaiTDC.c
+#SOURCES += $(APPSRC)/devWfTDC.c
+SOURCES += $(wildcard $(APPSRC)/*.c)
 
 DBDS += $(APPSRC)/evr_timestamp_buffer.dbd
 
